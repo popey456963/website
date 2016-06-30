@@ -1,0 +1,105 @@
+// Imports
+@import "_vars";
+@import "_reset";
+
+html, body {
+	background: #fff;
+	font-family: $font-stack;
+	font-size: 1em;
+	color: #111;
+	line-height: 28px;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+.cont {
+	padding: 80px;
+	box-sizing: border-box;
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+	img {
+		height: 50px;
+	}
+}
+
+section {
+	max-width: 410px;
+
+	p {
+		margin: 0 0 40px 0;
+	}
+
+	a {
+		margin: 20px 0 0 0;
+		font-size: 18px;
+		display: inline-block;
+		text-decoration: none;
+		position: relative;
+		color: #999;
+		transition: ease-in-out .1s all;
+
+		.underline {
+		  position: absolute;
+		  bottom: 11px;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  transition: ease-in-out .1s all;
+		  
+		  transform: translateY(30%) rotate(180deg);
+		  
+		  &--path {
+		    fill: transparent;
+		    stroke: #999;
+		    stroke-width: 1px;
+		  }
+		}
+
+		&:hover {
+			color: $brand;
+
+			.underline {
+				bottom: 7px;
+
+				&--path {
+	    			stroke: $brand;
+	  			}
+			}			
+		}
+	}
+}
+
+.bg-cont {
+	position: absolute;
+	top: 0;
+	right: 0;
+	overflow: hidden;
+	width: 256px;
+	height: 1005px;
+	margin: 0 80px 0 0;
+
+	.bg {
+		width: 100%;
+		height: 2010px;
+		background: url("../images/bg.png");
+		background-size: 256px;
+		background-repeat: repeat-y;
+		left: 0px;
+		position: absolute;
+		animation: scroll 40s linear infinite;
+	}
+}
+
+@keyframes scroll {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(0, -1005px, 0);
+	}
+}
